@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0c">
+  <meta name="description" content="Patoo404's Hack4Gov review notes: Kali Linux workflows for cryptography, reverse engineering, digital forensics, steganography, web security, and network security.">
+  <title>Hack4Gov Field Notes — Patoo404 Security Lab</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090a0c'/%3E%3Cpath d='M12 9 5 16l7 7M20 9l7 7-7 7' fill='none' stroke='%23ff3a45' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="lab.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('patoo-theme')==='light'?'light':'dark'}catch{}</script>
+  <script src="lab-notes.js" defer></script><script src="lab.js" defer></script>
+</head>
+<body class="lab-page">
+  <a class="skip-link" href="#review-content">Skip to review notes</a>
+  <header class="site-header"><a class="brand" href="index.html#home" aria-label="Patoo404 portfolio"><span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>Patoo<span class="red">404</span>.</a><nav class="lab-header-nav" aria-label="Lab navigation"><a href="index.html#projects">Portfolio</a><span class="lab-location mono">/ SECURITY LAB</span></nav><button id="theme-toggle" class="icon-button" aria-label="Switch to light mode" title="Switch to light mode"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></svg></button></header>
+  <main class="wrap lab-main">
+    <div class="lab-heading"><div><p class="eyebrow"><span class="tiny-line"></span> HACKFORGOV 2026 / JEOPARDY CTF</p><h1>Hack4Gov <span class="red">field notes.</span></h1><p>Independent challenges. Clear evidence. One flag at a time.</p></div><a id="download-review" class="button lab-download" href="hack4gov-review.md" download>Download all notes <span aria-hidden="true">.md</span></a></div>
+    <div class="lab-scope"><span class="scope-mark mono" aria-hidden="true">[ + ]</span><p>Practice in your Kali VM and test only the targets assigned by the competition. The organizer's live rules define scope and the required flag format.</p></div>
+    <div class="lab-layout">
+      <aside class="lab-sidebar"><label for="note-search" class="search-label">Find a topic or command</label><div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><input id="note-search" type="search" placeholder="Try: grep, SQL, tshark" autocomplete="off"></div><nav id="chapter-nav" aria-label="Study chapters"></nav><div class="lab-sidebar-note"><span class="mono red">THE REVIEW LOOP</span><p>Observe → Hypothesize → Test → Record</p><p>Keep the original evidence. Work on a copy.</p></div></aside>
+      <section id="review-content" class="review-content" tabindex="-1" aria-label="Review notes"><div id="chapter-header"></div><div id="notes-list"></div><p id="search-status" class="sr-only" role="status" aria-live="polite"></p></section>
+    </div>
+    <div class="lab-attribution"><strong>About this reviewer</strong><p>Independent study notes for the six Hack4Gov challenge categories you confirmed: cryptography, reverse engineering, digital forensics, steganography, web security, and network security. Kali setup, Linux basics, web exploitation practice, and Jeopardy-style competition strategy support the review. Command references are linked beside the notes.</p></div>
+  </main>
+  <footer class="wrap footer"><a class="brand" href="index.html">Patoo<span class="red">404</span>.</a><span>Security Lab · Learn with intention.</span><a class="text-link" href="index.html#projects">Back to portfolio</a></footer>
+  <div id="lab-toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
