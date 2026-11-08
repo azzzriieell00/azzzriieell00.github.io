@@ -7,8 +7,10 @@
 <meta name="description" content="Portfolio of Rance Ashriel Sabino, 1st year BSIT student at Aklan State University – Kalibo Campus focused on offensive security, CTFs and building security tools.">
 <meta name="theme-color" content="#0b0809">
 <meta property="og:title" content="Rance Ashriel Sabino">
+<meta property="og:url" content="https://azzzriieell00.github.io/">
+<meta property="og:type" content="website">
 <meta property="og:description" content="Offensive security in training. Projects, guilds, certifications and education.">
-<meta property="og:image" content="assets/profile.webp">
+<meta property="og:image" content="https://azzzriieell00.github.io/assets/profile.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0809'/%3E%3Cpath d='M6 9l8 7-8 7' fill='none' stroke='%23ff2b3f' stroke-width='3'/%3E%3Crect x='16' y='21' width='10' height='3' fill='%23ff2b3f'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -510,6 +512,35 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
 }
 @media (prefers-reduced-motion:reduce){.gbar{display:none}}
 
+/* second featured project, image on the right */
+.feature.rev .thumb{order:2;border-right:0;border-left:1px solid var(--line);cursor:pointer}
+.feature.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+.feature + .feature{margin-top:0}
+@media (max-width:820px){
+  .feature.rev{grid-template-columns:minmax(0,1fr)}
+  .feature.rev .thumb{order:0;border-left:0;border-bottom:1px solid var(--line);aspect-ratio:1265/724}
+}
+.feature.rev .thumb img{object-position:12% center}
+
+/* NULLHEIM: show the whole screenshot, letterboxed on the game's own navy */
+.feature.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}
+.feature.rev .thumb{display:flex;align-items:center;justify-content:center;background:#070b14;min-height:0;height:auto;align-self:stretch}
+.feature.rev .thumb img{width:100%;height:auto;max-height:100%;object-fit:contain;object-position:center}
+.card.feature.rev:hover .thumb img{transform:scale(1.02)}
+@media (max-width:820px){.feature.rev{grid-template-columns:minmax(0,1fr)}.feature.rev .thumb{aspect-ratio:auto}}
+@media (max-width:820px){.feature.rev .thumb-cta{display:none}}
+
+/* page transition + projects page */
+body.leaving main,body.leaving footer{animation:leave .3s steps(3) forwards}
+@keyframes leave{0%{filter:none}40%{transform:translateX(6px) skewX(-3deg);filter:drop-shadow(-4px 0 rgba(143,246,255,.7)) drop-shadow(4px 0 rgba(255,43,63,.8));clip-path:inset(0 0 40% 0)}
+  70%{transform:translateX(-8px);clip-path:inset(35% 0 0 0);opacity:.6}100%{opacity:0;clip-path:inset(50% 0 50% 0)}}
+.proj-page{padding-top:clamp(40px,7vw,80px)}
+.proj-page h1{font-size:var(--step-4);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
+.back{align-self:flex-start;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 0;transition:color .2s,translate .2s}
+.back:hover{color:var(--red);translate:-4px 0}
+.proj-count{font-family:var(--f-mono);font-size:var(--step--1);color:var(--muted)}
+.proj-count b{color:var(--red);font-weight:500}
+
 </style>
 <style>[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
@@ -530,7 +561,7 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
   <div class="bar-in">
     <nav class="nav" aria-label="Sections">
       <a href="#about" data-scramble>About</a>
-      <a href="#projects" data-scramble>Projects</a>
+      <a href="projects.html" data-page data-scramble>Projects</a>
       <a href="#guilds" data-scramble>Guilds</a>
       <a href="#learning" data-scramble>Learning</a>
       <a href="#education" data-scramble>Education</a>
@@ -541,7 +572,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
 </header>
 
 <main id="top">
-  <!-- HERO -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -556,7 +586,7 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
         <div class="role" aria-live="polite"><span class="pfx">&gt; </span><span id="role">Offensive security in training</span><span class="caret" aria-hidden="true"></span></div>
         <p class="lede">First-year BSIT student at Aklan State University – Kalibo, majoring in Software Engineering. I train on the offensive side: penetration testing, CTFs and vulnerability research, and I write my own Python tooling for it.</p>
         <div class="cta">
-          <a class="btn" href="#projects" data-scramble>View projects</a>
+          <a class="btn" href="projects.html" data-page data-scramble>View projects</a>
           <a class="btn ghost" href="#guilds" data-scramble>My guilds</a>
         </div>
       </div>
@@ -576,7 +606,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
       <div class="sec-head">
@@ -603,87 +632,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
           <figcaption class="ft"><span><b>●</b> Kalibo, Aklan · 17 municipalities</span><a href="https://data.humdata.org/dataset/cod-ab-phl" target="_blank" rel="noopener">Boundaries: NAMRIA · PSA ↗</a></figcaption>
         </figure>
       </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="path">~/<em>projects</em> $ ls -la</span>
-        <h2 class="glitch" data-text="Projects">Projects</h2>
-        <p class="lede">An intelligence map for Philippine hackathons and CTFs, plus the tools I build for CTF work.</p>
-      </div>
-      <article class="card feature" data-tilt="2.5" data-spot>
-        <span class="corner tl"></span><span class="corner br"></span>
-        <div class="gallery" id="hiGallery">
-          <button class="thumb shot-open" type="button" aria-label="View PH HackIntel Map screenshots full size">
-            <img class="gimg on" data-cap="Nationwide view" src="assets/hackintel.webp" alt="PH HackIntel Map nationwide view: a dark red map of the Philippines with event pins, a targets list on the left and an event intel panel on the right" width="1600" height="788">
-            <img class="gimg" data-cap="3D city view" src="assets/hackintel_city.webp" alt="PH HackIntel Map 3D city view: extruded buildings and roads around Boac, Marinduque with the event pin and intel panel" width="1600" height="784">
-            <span class="thumb-cta">View screenshots</span>
-          </button>
-          <div class="gtabs" role="tablist" aria-label="Screenshots">
-            <button class="gtab" role="tab" aria-selected="true" data-i="0"><b>01</b> Nationwide view</button>
-            <button class="gtab" role="tab" aria-selected="false" data-i="1"><b>02</b> 3D city view</button>
-            <span class="gbar"><i></i></span>
-          </div>
-        </div>
-        <div class="feature-copy">
-          <div class="card-top"><span>Featured · Intelligence map</span><span class="status live">Live · hourly scan</span></div>
-          <h3>PH HackIntel Map</h3>
-          <p>A web-based intelligence map that consolidates hackathons and capture-the-flag (CTF) cybersecurity competitions across the Philippines. Verified events appear as interactive pins, covering upcoming events and those from the past two months.</p>
-          <ul>
-            <li>Python scanner scheduled hourly through GitHub Actions collects events from public sources</li>
-            <li>Each location is validated against official Philippine province boundaries</li>
-            <li>Official links are verified before anything is published</li>
-            <li>Pins show registration deadlines, venues, eligibility, results and source references</li>
-            <li>Respects robots.txt and each platform's terms of use; uses manually verified entries where automated access isn't permitted</li>
-          </ul>
-          <div class="tags"><span class="tag">Python</span><span class="tag">GitHub Actions</span><span class="tag">Web map</span><span class="tag">PSGC boundaries</span><span class="tag">OSINT</span></div>
-          <div class="cta proj-cta">
-            <a class="btn" href="https://azzzriieell00.github.io/ph-hackintel/" target="_blank" rel="noopener" data-scramble>Open live map ↗</a>
-            <button class="btn ghost shot-open" type="button">View screenshots</button>
-          </div>
-        </div>
-      </article>
-
-      <div class="cards">
-        <article class="card" data-tilt="7" data-spot>
-          <span class="corner tl"></span><span class="corner br"></span>
-          <div class="thumb gen" aria-hidden="true"><span class="g-big">PCAP</span><span class="g-sub">network forensics</span><span class="g-wave"></span></div>
-          <div class="card-top"><span>Network forensics</span><span class="status live">v6.x</span></div>
-          <h3>H4G_PCAP_HUNTER</h3>
-          <p>An offline toolkit that inspects packet captures and surfaces hidden data and likely flags in CTF challenges.</p>
-          <ul>
-            <li>DNS, HTTP, TCP, FTP, Telnet, SMB, NFS and ICMP inspection</li>
-            <li>DNS fragment reconstruction and multilayer payload decoding</li>
-            <li>Ranks flag candidates without relying on hardcoded prefixes</li>
-            <li>Deterministic, with unit tests and self-tests</li>
-          </ul>
-          <div class="tags"><span class="tag">Python</span><span class="tag">PCAP</span><span class="tag">CTF</span></div>
-        </article>
-        <article class="card" data-tilt="7" data-spot>
-          <span class="corner tl"></span><span class="corner br"></span>
-          <div class="thumb gen xor" aria-hidden="true"><span class="g-big">XOR</span><span class="g-sub">cryptography</span><span class="g-wave"></span></div>
-          <div class="card-top"><span>Cryptography</span><span class="status dev">In development</span></div>
-          <h3>H4G_CRYPTO_HUNTER</h3>
-          <p>A companion tool for identifying encodings and peeling apart layered ciphertext during challenges.</p>
-          <ul>
-            <li>Detects likely encodings and tests transformations</li>
-            <li>Finds multilayer decoding chains and ranks plaintexts</li>
-            <li>Classical ciphers and XOR investigation</li>
-            <li>Explainable, reproducible results with few false positives</li>
-          </ul>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Crypto</span><span class="tag">CTF</span></div>
-        </article>
-        <article class="card next" data-spot>
-          <span class="corner tl"></span><span class="corner br"></span>
-          <span class="path">~/<em>projects</em> $ mkdir next</span>
-          <h3 class="glitch" data-text="What's next?">What's next?</h3>
-          <p>More tools and builds are on the way.</p>
-          <span class="caret" aria-hidden="true"></span>
-        </article>
-      </div>
 
       <div class="record" data-spot>
         <div class="record-copy">
@@ -705,7 +653,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     </div>
   </section>
 
-  <!-- GUILDS -->
   <section id="guilds">
     <div class="wrap">
       <div class="sec-head">
@@ -756,7 +703,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     </div>
   </section>
 
-  <!-- LEARNING -->
   <section id="learning">
     <div class="wrap">
       <div class="sec-head">
@@ -800,7 +746,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     </div>
   </section>
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="wrap">
       <div class="sec-head">
@@ -844,11 +789,6 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     </div>
   </section>
 </main>
-<dialog id="shotBox" class="shotbox" aria-label="PH HackIntel Map screenshot">
-  <button class="shot-close" type="button" aria-label="Close screenshot">Close [x]</button>
-  <img id="boxImg" src="assets/hackintel.webp" alt="PH HackIntel Map full screenshot" width="1600" height="788">
-  <div class="box-nav"><button class="box-prev" type="button" aria-label="Previous screenshot">&lt; Prev</button><span id="boxCap">01 / 02 · Nationwide view</span><button class="box-next" type="button" aria-label="Next screenshot">Next &gt;</button></div>
-</dialog>
 
 <footer>
   <div class="wrap"><span>© 2026 Rance Ashriel Sabino · Kalibo, Aklan</span><span><b>●</b> session active · hack responsibly</span></div>
@@ -890,7 +830,7 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
   const roles = ['Offensive security in training','CTF player · HackForGov 5 Top 5','Python tool builder','Lead, ASU Cyber Guild','BSIT · Software Engineering'];
   const roleEl = document.getElementById('role');
   let ri = 0;
-  if(!reduce){
+  if(!reduce && roleEl){
     setInterval(()=>{ ri=(ri+1)%roles.length; scramble(roleEl, roles[ri], 700); }, 3200);
   }
 
@@ -958,6 +898,7 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     }
   };
   const sw = document.getElementById('switcher');
+  if(sw){
   const logo = document.getElementById('logo');
   const logoImg = document.getElementById('logoImg');
   const tabs = [...sw.querySelectorAll('.tab')];
@@ -1012,10 +953,11 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
   });
   fill('cyber', false);
   restart();
+  }
 
   /* --- active nav link --- */
   const links = [...document.querySelectorAll('.nav a')];
-  const secs = links.map(a=>document.querySelector(a.getAttribute('href')));
+  const secs = links.map(a=>{ const h=a.getAttribute('href'); return h.charAt(0)==='#' ? document.querySelector(h) : null; });
   if('IntersectionObserver' in window){
     const io = new IntersectionObserver(entries=>{
       entries.forEach(en=>{ if(en.isIntersecting){ links.forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+en.target.id)); } });
@@ -1220,6 +1162,17 @@ button.btn{background:none;cursor:pointer;font-family:var(--f-mono)}
     if(nav.scrollWidth > nav.clientWidth+2) nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.offsetWidth/2, behavior:'smooth'});
   }
   new MutationObserver(moveInd).observe(nav, {subtree:true, attributes:true, attributeFilter:['class']});
+  moveInd(); if(document.fonts && document.fonts.ready) document.fonts.ready.then(moveInd);
+
+  /* ---------- page-to-page transition ---------- */
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a[data-page]');
+    if(!a || reduce || e.metaKey || e.ctrlKey || e.shiftKey || e.button!==0) return;
+    e.preventDefault();
+    document.body.classList.add('leaving');
+    setTimeout(() => { location.href = a.href; }, 300);
+  });
+  addEventListener('pageshow', () => document.body.classList.remove('leaving'));
   addEventListener('resize', moveInd);
   let sTick = false;
   addEventListener('scroll', () => {
