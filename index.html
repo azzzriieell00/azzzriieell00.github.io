@@ -541,6 +541,38 @@ body.leaving main,body.leaving footer{animation:leave .3s steps(3) forwards}
 .proj-count{font-family:var(--f-mono);font-size:var(--step--1);color:var(--muted)}
 .proj-count b{color:var(--red);font-weight:500}
 
+/* Dynasty Map card */
+.feature .thumb.light{background:#e8f0fb;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.feature .thumb.light img{height:auto;max-height:100%;object-fit:contain;filter:none}
+.card.feature:hover .thumb.light img{transform:scale(1.02)}
+.dstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.dstats div{background:var(--bg);padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.dstats b{font-family:var(--f-display);font-size:1.45rem;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}
+.dstats div:nth-child(2) b{color:var(--red)}
+.dstats span{font-size:.74rem;line-height:1.35;color:var(--muted)}
+.feature .fine{font-size:.8rem;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+
+/* BetterAklan org card */
+.org-wide{margin-top:20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:center;border:1px solid var(--line);background-color:var(--surface);padding:clamp(18px,3vw,28px);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.org-wide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#f0bc35,#2c4fb5);transform:scaleY(.25);transform-origin:top;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.org-wide:hover{border-color:rgba(240,188,53,.55)}
+.org-wide:hover::before{transform:scaleY(1)}
+.org-logo{width:clamp(110px,14vw,150px);aspect-ratio:1;max-width:100%;background:#fff;padding:6px;border:1px solid var(--line)}
+.org-logo img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.org-wide:hover .org-logo img{transform:scale(1.06) rotate(-2deg)}
+.org-copy{display:flex;flex-direction:column;gap:8px;min-width:0}
+.org-copy .g-role{color:#f0bc35}
+.org-copy h3{text-transform:uppercase;letter-spacing:.02em}
+.org-copy p{color:#d6cbc9;max-width:68ch}
+.org-copy ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:.9rem;color:var(--muted)}
+.org-copy li{padding-left:18px;position:relative}
+.org-copy li::before{content:">";position:absolute;left:0;color:#f0bc35;font-family:var(--f-mono)}
+.org-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+@media (max-width:640px){
+  .dstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .org-wide{grid-template-columns:minmax(0,1fr)}
+}
+
 </style>
 <style>[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
@@ -700,6 +732,22 @@ body.leaving main,body.leaving footer{animation:leave .3s steps(3) forwards}
           </div>
         </article>
       </div>
+        <article class="org-wide" data-spot>
+          <div class="org-logo"><img src="assets/betteraklan.webp" alt="BetterAklan logo: a Philippine sun rising behind palm trees, a beach and two sailboats" width="360" height="360"></div>
+          <div class="org-copy">
+            <span class="g-role">Community portal · Province of Aklan</span>
+            <h3>BetterAklan</h3>
+            <p>A community portal for the Province of Aklan that puts public information and civic tools in one place for Aklanons, free and without a login. I contribute to it as a builder.</p>
+            <ul>
+              <li>Built the Aklan Dynasty Map at dynasties.betteraklan.org</li>
+              <li>Organizing an emergency hotlines directory for Aklan's municipalities (in progress)</li>
+            </ul>
+            <div class="org-actions">
+              <a class="btn" href="https://betteraklan.org" target="_blank" rel="noopener" data-scramble>Visit BetterAklan ↗</a>
+              <a class="btn ghost" href="projects.html" data-page data-scramble>See the Dynasty Map</a>
+            </div>
+          </div>
+        </article>
     </div>
   </section>
 

@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects · Rance Sabino</title>
-<meta name="description" content="Projects by Rance Ashriel Sabino: NULLHEIM, PH HackIntel Map, and CTF tools for network forensics and cryptography.">
+<meta name="description" content="Projects by Rance Ashriel Sabino: Aklan Dynasty Map, NULLHEIM, PH HackIntel Map, and CTF tools for network forensics and cryptography.">
 <meta name="theme-color" content="#0b0809">
 <meta property="og:title" content="Projects · Rance Ashriel Sabino">
 <meta property="og:url" content="https://azzzriieell00.github.io/projects.html">
 <meta property="og:type" content="website">
-<meta property="og:description" content="NULLHEIM, PH HackIntel Map and CTF tools built by Rance Ashriel Sabino.">
+<meta property="og:description" content="Aklan Dynasty Map, NULLHEIM, PH HackIntel Map and CTF tools built by Rance Ashriel Sabino.">
 <meta property="og:image" content="https://azzzriieell00.github.io/assets/nullheim.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0809'/%3E%3Cpath d='M6 9l8 7-8 7' fill='none' stroke='%23ff2b3f' stroke-width='3'/%3E%3Crect x='16' y='21' width='10' height='3' fill='%23ff2b3f'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -541,6 +541,38 @@ body.leaving main,body.leaving footer{animation:leave .3s steps(3) forwards}
 .proj-count{font-family:var(--f-mono);font-size:var(--step--1);color:var(--muted)}
 .proj-count b{color:var(--red);font-weight:500}
 
+/* Dynasty Map card */
+.feature .thumb.light{background:#e8f0fb;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.feature .thumb.light img{height:auto;max-height:100%;object-fit:contain;filter:none}
+.card.feature:hover .thumb.light img{transform:scale(1.02)}
+.dstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.dstats div{background:var(--bg);padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.dstats b{font-family:var(--f-display);font-size:1.45rem;line-height:1;color:var(--fg);font-variant-numeric:tabular-nums}
+.dstats div:nth-child(2) b{color:var(--red)}
+.dstats span{font-size:.74rem;line-height:1.35;color:var(--muted)}
+.feature .fine{font-size:.8rem;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+
+/* BetterAklan org card */
+.org-wide{margin-top:20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:center;border:1px solid var(--line);background-color:var(--surface);padding:clamp(18px,3vw,28px);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.org-wide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#f0bc35,#2c4fb5);transform:scaleY(.25);transform-origin:top;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.org-wide:hover{border-color:rgba(240,188,53,.55)}
+.org-wide:hover::before{transform:scaleY(1)}
+.org-logo{width:clamp(110px,14vw,150px);aspect-ratio:1;max-width:100%;background:#fff;padding:6px;border:1px solid var(--line)}
+.org-logo img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.org-wide:hover .org-logo img{transform:scale(1.06) rotate(-2deg)}
+.org-copy{display:flex;flex-direction:column;gap:8px;min-width:0}
+.org-copy .g-role{color:#f0bc35}
+.org-copy h3{text-transform:uppercase;letter-spacing:.02em}
+.org-copy p{color:#d6cbc9;max-width:68ch}
+.org-copy ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:.9rem;color:var(--muted)}
+.org-copy li{padding-left:18px;position:relative}
+.org-copy li::before{content:">";position:absolute;left:0;color:#f0bc35;font-family:var(--f-mono)}
+.org-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+@media (max-width:640px){
+  .dstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .org-wide{grid-template-columns:minmax(0,1fr)}
+}
+
 </style>
 <style>[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 </head>
@@ -578,8 +610,8 @@ body.leaving main,body.leaving footer{animation:leave .3s steps(3) forwards}
         <a class="back" href="./" data-page>&larr; Back to portfolio</a>
         <span class="path">~/<em>projects</em> $ ls -la</span>
         <h1 class="glitch idle" data-text="Projects">Projects</h1>
-        <p class="lede">A game that teaches cybersecurity, an intelligence map for Philippine hackathons and CTFs, and the tools I build for CTF work.</p>
-        <span class="proj-count"><b>04</b> projects · more on the way</span>
+        <p class="lede">A civic data map of Aklan's political families, a game that teaches cybersecurity, an intelligence map for Philippine hackathons and CTFs, and the tools I build for CTF work.</p>
+        <span class="proj-count"><b>05</b> projects · more on the way</span>
       </div>
       <article class="card feature" data-tilt="2.5" data-spot>
         <span class="corner tl"></span><span class="corner br"></span>
@@ -634,6 +666,37 @@ body.leaving main,body.leaving footer{animation:leave .3s steps(3) forwards}
           <div class="cta proj-cta">
             <a class="btn" href="https://azzzriieell00.github.io/nullheim/" target="_blank" rel="noopener" data-scramble>Play in browser ↗</a>
             <a class="btn ghost" href="https://patoo404.itch.io/nullheim" target="_blank" rel="noopener" data-scramble>itch.io page ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card feature" data-tilt="2.5" data-spot>
+        <span class="corner tl"></span><span class="corner br"></span>
+        <a class="thumb light" href="https://dynasties.betteraklan.org" target="_blank" rel="noopener" aria-label="Open the Aklan Dynasty Map">
+          <img src="assets/dynasty.webp" alt="Aklan Dynasty Map on a laptop and a phone: seat counts, a town-by-town map of Aklan coloured by family-bloc share, and a sourced family tree" width="1400" height="775">
+          <span class="thumb-cta">Open the map ↗</span>
+        </a>
+        <div class="feature-copy">
+          <div class="card-top"><span>Featured · Civic data</span><span class="status live">Live · BetterAklan</span></div>
+          <h3>Aklan Dynasty Map</h3>
+          <p>I built Aklan its own political dynasty map: every winner for provincial and municipal office from 2001 to 2025 across all 17 municipalities, the surname blocs they form, and the family ties that public sources confirm. It's now part of BetterAklan.</p>
+          <div class="dstats" aria-label="Key figures">
+            <div><b>184</b><span>seats won in 2025, serving to 2028</span></div>
+            <div><b>57%</b><span>of those seats held by bloc members</span></div>
+            <div><b>42</b><span>surname blocs in office</span></div>
+            <div><b>10</b><span>family trees, every link sourced</span></div>
+          </div>
+          <ul>
+            <li>Click a town to see who holds its seats and every mayor and vice mayor since 2001</li>
+            <li>Click a surname to see its seats, votes, offices and linked surnames</li>
+            <li>Click an official to see their full election record</li>
+            <li>Free, no login, and works on your phone</li>
+          </ul>
+          <p class="fine">Election data from Open Halalan via BetterGov.ph's national Dynasties project, using the same bloc methodology so the numbers line up. A shared surname is a signal, not proof of kinship.</p>
+          <div class="tags"><span class="tag">Civic tech</span><span class="tag">Open data</span><span class="tag">Data visualization</span><span class="tag">Interactive map</span><span class="tag">Aklan</span></div>
+          <div class="cta proj-cta">
+            <a class="btn" href="https://dynasties.betteraklan.org" target="_blank" rel="noopener" data-scramble>Open the map ↗</a>
+            <a class="btn ghost" href="https://dynasties.bettergov.ph" target="_blank" rel="noopener" data-scramble>BetterGov.ph Dynasties ↗</a>
           </div>
         </div>
       </article>
